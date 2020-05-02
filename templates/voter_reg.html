@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+
+<style>
+    body {
+    background-image: linear-gradient(#092530, #145670,#228cb5);
+    background-size: cover;
+}
+
+
+*[role="form"] {
+    font-family:Arial, Helvetica, sans-serif;
+    max-width: 600px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 0.8em;
+    color: #145670;
+    background-color:white;
+}
+
+*[role="form"] h3 {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight:600;
+    color:#092530;
+    margin-top: 3%;
+    word-spacing: 0.5em;
+    text-align: center;
+
+
+}
+*[role="form"] button{
+background-color: #092530;
+width:200px;
+margin-left: auto;
+margin-right: auto;
+}
+
+
+*[role="form"] button:hover{
+    background-color:  #145670;
+    color: white;
+}
+
+
+</style>
+</head>
+<body>
+<br><br><br>
+<div class="container">
+            <form class="form-horizontal" role="form" method="post" action="/add_voter">
+                <h3>VOTER  REGISTRATION</h3>
+                <br>
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="fname" placeholder="First Name" class="form-control" name="fname" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="lname" placeholder="Last Name" class="form-control" name="lname" autofocus>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" id="email" placeholder="xyz@somaiya.edu" class="form-control" name= "email">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Gender</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" id="femaleRadio" value="Female">Female
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input  type="radio" name="gender" id="maleRadio" value="Male">Male
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio"  name="gender"  id="otherRadio" value="Other">Other
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /.form-group -->
+                <div class="form-group">
+                     <label for="branch" class="col-sm-3 control-label">Branch</label>
+                     <div class="col-sm-9">
+                        <select class="form-control" id="branch" name="branch">
+                            <option value="Comps">Comps</option>
+                            <option value="IT">IT</option>
+                            <option value="EXTC">EXTC</option>
+                            <option value="Etrx">Etrx</option>
+                            <option value="Mech">Mech</option>
+                        </select>
+                     </div>
+                 </div>
+                 <div class="form-group">
+                    <label class="control-label col-sm-3">Current Year</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label class="radio-inline">
+                                    <input type="radio" name="cyear" id="fy" value="FY">FY
+                                </label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="radio-inline">
+                                    <input type="radio" name="cyear" id="sy" value="SY">SY
+                                </label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="radio-inline">
+                                    <input type="radio" name="cyear" id="ty" value="TY">TY
+                                </label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="radio-inline">
+                                    <input type="radio" name="cyear" id="ly" value="TY">LY
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- /.form-group -->
+
+
+
+                <div class="form-group">
+                    <label for="pwd" class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" id="pwd" placeholder="Password" class="form-control" name="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pwd" class="col-sm-3 control-label">Confirm Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" id="pwd" placeholder="Re-enter Password" class="form-control" name="password">
+                    </div>
+                </div>
+
+
+
+
+
+                <button type="submit" class="btn btn-primary btn-block">Register</button><br>
+                <p style="margin-left:190px;">Already registered ?? <a href="/voter_login">Login</a></p>
+            </form> <!-- /form -->
+        </div> <!-- ./container -->
+
+<br><br><br>
+</body>
+</html>
