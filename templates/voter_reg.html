@@ -13,9 +13,10 @@
 
 
 <style>
-    body {
-    background-image: linear-gradient(#092530, #145670,#228cb5);
-    background-size: cover;
+body {
+background: #4B79A1;
+background: -webkit-linear-gradient(to right,#052B3B,#145670,#228cb5);
+background: linear-gradient(to right, #052B3B,#145670,#228cb5);
 }
 
 
@@ -55,21 +56,122 @@ margin-right: auto;
 
 
 </style>
+
+<script>
+
+            // Function to check Whether both passwords
+            // is same or not.
+            function checkPassword(form) {
+                password1 = form.password.value;
+                password2 = form.confirm_password.value;
+
+                // If password not entered
+                if (password1 == '')
+                    alert ("Please enter Password");
+
+                // If confirm password not entered
+                else if (password2 == '')
+                    alert ("Please enter confirm password");
+
+                // If Not same return False.
+                else if (password1 != password2) {
+                    alert ("\nPassword did not match: Please try again...")
+                    return false;
+                }
+
+                // If same return True.
+                else{
+                    alert("Password Match: password match:registered!")
+                    return true;
+                }
+            }
+        </script>
+ <script type="text/javascript">
+    function formvalidation()
+{
+    var fname = document.forms["RegForm"]["fname"];
+    var lname = document.forms["RegForm"]["lname"];
+    var email = document.forms["RegForm"]["email"];
+    var gender = document.forms["RegForm"]["gender"];
+    var branch = document.forms["RegForm"]["branch"];
+    var currentyear= document.forms["RegForm"]["cyear"];
+    var password=document.forms["RegForm"]["password"];
+    var confirmpassword=document.forms["RegForm"]["confirm_password"];
+
+
+    if (fname.value == "")
+    {
+        window.alert("Please enter your first name.");
+        name.focus();
+        return false;
+    }
+     if (lname.value == "")
+    {
+        window.alert("Please enter your last name.");
+        name.focus();
+        return false;
+    }
+    if (email.value == "")
+    {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+    }
+
+     if ((gender[0].checked == false ) && (gender[1].checked == false ) && (gender[2].checked == false ))
+    {
+        alert("Please select your gender.");
+        what.focus();
+        return false;
+    }
+    if (branch.selectedIndex < 1)
+    {
+        alert("Please enter your branch.");
+        what.focus();
+        return false;
+    }
+    if ((currentyear[0].checked == false ) && (currentyear[1].checked == false ) && (currentyear[2].checked == false ) && (currentyear[3].checked == false ))
+    {
+        alert("Please select your current year.");
+        what.focus();
+        return false;
+    }
+    if (password.value == "")
+    {
+        window.alert("Please enter your password.");
+        name.focus();
+        return false;
+    }
+        if (password.value <4 && password.value>15)
+    {
+        window.alert("Minimum length of password should be 3 and Maximum length should be 15.");
+        name.focus();
+        return false;
+    }
+    if (confirmpassword.value == "")
+    {
+        window.alert("Please reenter your pass.");
+        name.focus();
+        return false;
+    }
+    return true;
+}</script>
 </head>
 <body>
 <br><br><br>
 <div class="container">
-            <form class="form-horizontal" role="form" method="post" action="/add_voter">
+            <form class="form-horizontal" role="form" method="post" action="/add_voter"
+            name="RegForm" onsubmit="return formvalidation() && checkPassword(this)">
                 <h3>VOTER  REGISTRATION</h3>
                 <br>
                 <div class="form-group">
-                    <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                    <label for="fname" class="col-sm-3 control-label">First Name</label>
                     <div class="col-sm-9">
                         <input type="text" id="fname" placeholder="First Name" class="form-control" name="fname" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                    <label for="lname" class="col-sm-3 control-label">Last Name</label>
                     <div class="col-sm-9">
                         <input type="text" id="lname" placeholder="Last Name" class="form-control" name="lname" autofocus>
                     </div>
@@ -79,7 +181,8 @@ margin-right: auto;
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Email</label>
                     <div class="col-sm-9">
-                        <input type="email" id="email" placeholder="xyz@somaiya.edu" class="form-control" name= "email">
+                        <input type="email" id="email" placeholder="xyz@somaiya.edu" class="form-control" name= "email"
+                               pattern=".+@somaiya.edu">
                     </div>
                 </div>
 
@@ -110,6 +213,7 @@ margin-right: auto;
                      <label for="branch" class="col-sm-3 control-label">Branch</label>
                      <div class="col-sm-9">
                         <select class="form-control" id="branch" name="branch">
+                            <option>select branch</option>
                             <option value="Comps">Comps</option>
                             <option value="IT">IT</option>
                             <option value="EXTC">EXTC</option>
@@ -149,15 +253,15 @@ margin-right: auto;
 
 
                 <div class="form-group">
-                    <label for="pwd" class="col-sm-3 control-label">Password</label>
+                    <label for="pwd1" class="col-sm-3 control-label">Password</label>
                     <div class="col-sm-9">
-                        <input type="password" id="pwd" placeholder="Password" class="form-control" name="password">
+                        <input type="password" id="pwd1" placeholder="Password" class="form-control" name="password" onkeyup="checkPass()">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="pwd" class="col-sm-3 control-label">Confirm Password</label>
+                    <label for="pwd2" class="col-sm-3 control-label">Confirm Password</label>
                     <div class="col-sm-9">
-                        <input type="password" id="pwd" placeholder="Re-enter Password" class="form-control" name="password">
+                        <input type="password" id="pwd2" placeholder="Re-enter Password" class="form-control" name="confirm_password" onkeyup="checkPass()">
                     </div>
                 </div>
 
